@@ -30,7 +30,7 @@ class App(tk.Tk):
         if platform.system() == 'Windows':
             self.state('zoomed')
         else:
-            self.attribute('zoomed', True)
+            self.attributes('-zoomed', True)
 
         style = ttk.Style(self)
         style.configure('lefttab.TNotebook', tabposition='wn')
