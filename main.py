@@ -18,26 +18,26 @@ class Tabs(ttk.Notebook):
         summaryTab = ttk.Frame(self, style='lefttab.TNotebook', padding=spacing)
         regionTab = ttk.Frame(self, style='lefttab.TNotebook', padding=spacing)
         dateTab = ttk.Frame(self, style='lefttab.TNotebook', padding=spacing)
-        self.add(regionTab, text='Region')
         self.add(summaryTab, text='Summary')
+        self.add(regionTab, text='Region')
         self.add(dateTab, text='Date')
 
-        totalCasesCard = DashboardCard(regionTab, title='Total Cases', data=summaryData['cases'])
+        totalCasesCard = DashboardCard(summaryTab, title='Total Cases', data=summaryData['cases'])
         totalCasesCard.grid(padx=spacing, pady=spacing)
 
-        activeCasesCard = DashboardCard(regionTab, title='Active Cases', data=summaryData['active'])
+        activeCasesCard = DashboardCard(summaryTab, title='Active Cases', data=summaryData['active'])
         activeCasesCard.grid(row=0, column=1, padx=spacing, pady=spacing)
 
-        recoveredCasesCard = DashboardCard(regionTab, title='Recovered Cases', data=summaryData['recovered'])
+        recoveredCasesCard = DashboardCard(summaryTab, title='Recovered Cases', data=summaryData['recovered'])
         recoveredCasesCard.grid(row=1, padx=spacing, pady=spacing)
 
-        recoveryRateCard = DashboardCard(regionTab, title='Recovery Rate', data=f"{summaryData['recovery_rate']}%")
+        recoveryRateCard = DashboardCard(summaryTab, title='Recovery Rate', data=f"{summaryData['recovery_rate']}%")
         recoveryRateCard.grid(row=1, column=1, padx=spacing, pady=spacing)
 
-        deathCasesCard = DashboardCard(regionTab, title='Death Cases', data=summaryData['deaths'])
+        deathCasesCard = DashboardCard(summaryTab, title='Death Cases', data=summaryData['deaths'])
         deathCasesCard.grid(row=2, padx=spacing, pady=spacing)
 
-        fatalityRateCard = DashboardCard(regionTab, title='Fatality Rate', data=f"{summaryData['fatality_rate']}%")
+        fatalityRateCard = DashboardCard(summaryTab, title='Fatality Rate', data=f"{summaryData['fatality_rate']}%")
         fatalityRateCard.grid(row=2, column=1, padx=spacing, pady=spacing)
 
 
@@ -69,10 +69,10 @@ class App(tk.Tk):
         super().__init__()
 
         self.title('COVID Data')
-        if platform.system() == 'Windows':
-            self.state('zoomed')
-        else:
-            self.attributes('-zoomed', True)
+        # if platform.system() == 'Windows':
+        #     self.state('zoomed')
+        # else:
+        #     self.attributes('-zoomed', True)
 
         # wthm = ttk.Style()
     
