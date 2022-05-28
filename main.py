@@ -90,6 +90,7 @@ class App(tk.Tk):
         style = ttk.Style(self)
         # style.configure('lefttab.TNotebook', tabposition='wn')
         # style.configure('TNotebook.Tab', width=15)
+        style.configure('dashboardCard.TFrame', background='#1e1e2e')
 
         tabs = Tabs(self)
         tabs.pack(expand=1, fill="both")
