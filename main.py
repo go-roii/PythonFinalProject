@@ -27,7 +27,7 @@ class Tabs(ttk.Notebook):
 
 class SummaryTab(ttk.Frame):
     def __init__(self, container):
-        super().__init__(container, padding=12)
+        super().__init__(container, padding=12, style='tabFrame.TFrame')
 
         spacing = 12
 
@@ -92,6 +92,7 @@ class App(tk.Tk):
         # style.configure('lefttab.TNotebook', tabposition='wn')
         # style.configure('TNotebook.Tab', width=15)
         style.configure('dashboardCard.TFrame', background='#1e1e2e')
+        style.configure('tabFrame.TFrame', background='#181825')
 
         tabs = Tabs(self)
         tabs.pack(expand=1, fill="both")
