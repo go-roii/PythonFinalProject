@@ -31,6 +31,8 @@ class SummaryTab(ttk.Frame):
 
         spacing = 8
 
+        label = tk.Label(self, text='tae')
+
         totalCasesCard = DashboardCard(self, title='Total Cases', data=summaryData['cases'])
         totalCasesCard.grid(padx=spacing, pady=spacing)
 
@@ -57,6 +59,7 @@ class BreakdownTab(ttk.Frame):
         filterComboList = ['Filter by', 'Age Group', 'Sex', 'Region', 'Province']
         filterCombobox = ttk.Combobox(self, state="readonly", values=filterComboList)
         filterCombobox.current(0)
+        filterCombobox.bind("<<ComboboxSelected>>", lambda e: filterCombobox.select_clear())
         filterCombobox.pack(side=TOP, anchor='ne')
 
         frameContainer = ttk.Frame(self, padding=8)
@@ -95,3 +98,4 @@ class App(tk.Tk):
 if __name__ == '__main__':
     app = App()
     app.mainloop()
+

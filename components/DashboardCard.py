@@ -2,15 +2,13 @@ from tkinter import *
 import tkinter as tk
 from tkinter import ttk
 
-class DashboardCard(tk.Frame):
+class DashboardCard(ttk.Frame):
     def __init__(self, container, title, data):
         super().__init__(
             container,
-            bg='#44475a',
             height=200,
             width=400,
-            padx=20,
-            pady=20
+            padding=20,
         )
         self.pack_propagate(0)
 
