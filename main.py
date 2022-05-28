@@ -27,29 +27,30 @@ class Tabs(ttk.Notebook):
 
 class SummaryTab(ttk.Frame):
     def __init__(self, container):
-        super().__init__(container, padding=24)
+        super().__init__(container, padding=12)
 
-        spacing = 8
+        spacing = 12
 
-        label = tk.Label(self, text='tae')
-
-        totalCasesCard = DashboardCard(self, title='Total Cases', data=summaryData['cases'])
+        totalCasesCard = DashboardCard(self, title='Total Cases', data=self.addCommas(summaryData['cases']))
         totalCasesCard.grid(padx=spacing, pady=spacing)
 
-        activeCasesCard = DashboardCard(self, title='Active Cases', data=summaryData['active'])
+        activeCasesCard = DashboardCard(self, title='Active Cases', data=self.addCommas(summaryData['active']))
         activeCasesCard.grid(row=0, column=1, padx=spacing, pady=spacing)
 
-        recoveredCasesCard = DashboardCard(self, title='Recovered Cases', data=summaryData['recovered'])
+        recoveredCasesCard = DashboardCard(self, title='Recovered Cases', data=self.addCommas(summaryData['recovered']))
         recoveredCasesCard.grid(row=1, padx=spacing, pady=spacing)
 
         recoveryRateCard = DashboardCard(self, title='Recovery Rate', data=f"{summaryData['recovery_rate']}%")
         recoveryRateCard.grid(row=1, column=1, padx=spacing, pady=spacing)
 
-        deathCasesCard = DashboardCard(self, title='Death Cases', data=summaryData['deaths'])
+        deathCasesCard = DashboardCard(self, title='Death Cases', data=self.addCommas(summaryData['deaths']))
         deathCasesCard.grid(row=2, padx=spacing, pady=spacing)
 
         fatalityRateCard = DashboardCard(self, title='Fatality Rate', data=f"{summaryData['fatality_rate']}%")
         fatalityRateCard.grid(row=2, column=1, padx=spacing, pady=spacing)
+
+    def addCommas(self, number):
+        return '{:,}'.format(number)
 
 
 class BreakdownTab(ttk.Frame):

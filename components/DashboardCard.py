@@ -3,23 +3,28 @@ from tkinter import ttk
 
 class DashboardCard(tk.Frame):
     def __init__(self, container, title, data):
+        bgColor='#1e1e2e'
+
         super().__init__(
             container,
-            height=200,
-            width=400,
-            bg='#1e1e2e',
+            height=150,
+            width=350,
+            bg=bgColor,
             highlightthickness=2,
             highlightbackground='#94e2d5',
-            padx=12,
-            pady=12
+            padx=16,
+            pady=20
         )
         self.pack_propagate(0)
 
-        titleLabel = tk.Label(self, text=title, font='arial 10', bg='#1e1e2e', fg='#c6d0f5')
-        titleLabel.pack(anchor='w')
+        titleLabel = tk.Label(self, text=title, font='arial 12', bg=bgColor, fg='#c6d0f5')
+        titleLabel.pack(anchor='w', expand=1)
 
         graph = tk.Frame(self, bg='#1e1e2e')
         graph.pack(expand=1, fill=tk.BOTH)
 
-        dataLabel = tk.Label(graph, text=data, font='arial 24 bold', bg='#1e1e2e', fg='#94e2d5')
-        dataLabel.pack(expand=1)
+        dataLabel = tk.Label(graph, text=data, font='arial 26 bold', bg=bgColor, fg='#94e2d5')
+        dataLabel.pack(anchor='w')
+
+        comparePreviousDataLabel = tk.Label(graph, text='10.7% VS PREV. 28 DAYS', bg=bgColor, fg='#7b819d')
+        comparePreviousDataLabel.pack(anchor='w')
