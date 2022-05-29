@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14061128-966a-4497-b398-1338ee40b2d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/DOH COVID Data Drop_ 20220507 - 04 Case Information_batch_0.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/DOH COVID Data Drop_ 20220507 - 04 Case Information_batch_1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/DOH COVID Data Drop_ 20220507 - 04 Case Information_batch_2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/files/DOH COVID Data Drop_ 20220507 - 04 Case Information_batch_3.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_age_group.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_age_group.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_month.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_month.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_province.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_province.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_region.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_region.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_sex.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_sex.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_summary.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_summary.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/ProcessData.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ProcessData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/input.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/files" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -70,7 +71,7 @@
       <recent name="D:\PythonFinalProject\files" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ProcessData (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="DataSummary (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonFinalProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -181,7 +182,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Requests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PythonFinalProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -189,12 +190,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Models" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Models/Requests.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -205,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.ProcessData (1)" />
         <item itemvalue="Python.DataSummary (1)" />
         <item itemvalue="Python.DataSummary" />
         <item itemvalue="Python.ProcessData" />
-        <item itemvalue="Python.Requests" />
       </list>
     </recent_temporary>
   </component>
@@ -228,6 +229,7 @@
       <workItem from="1652956499764" duration="12014000" />
       <workItem from="1653007527214" duration="15564000" />
       <workItem from="1653034966339" duration="14057000" />
+      <workItem from="1653807120206" duration="2615000" />
     </task>
     <servers />
   </component>
@@ -249,10 +251,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PythonFinalProject$ProcessData__1_.coverage" NAME="ProcessData (1) Coverage Results" MODIFIED="1653048675668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
+    <SUITE FILE_PATH="coverage/PythonFinalProject$ProcessData__1_.coverage" NAME="ProcessData (1) Coverage Results" MODIFIED="1653807826329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$final_proj.coverage" NAME="final_proj Coverage Results" MODIFIED="1652850911283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$DataSummary__1_.coverage" NAME="DataSummary (1) Coverage Results" MODIFIED="1653048300943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$ProcessData.coverage" NAME="ProcessData Coverage Results" MODIFIED="1652957123773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
+    <SUITE FILE_PATH="coverage/PythonFinalProject$main.coverage" NAME="main Coverage Results" MODIFIED="1653809437936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$Requests.coverage" NAME="Requests Coverage Results" MODIFIED="1652950972738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$DataSummary.coverage" NAME="DataSummary Coverage Results" MODIFIED="1653008208836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
   </component>

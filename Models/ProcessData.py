@@ -46,7 +46,7 @@ summary['active'] = int(result['RemovalType'].isna().sum())
 summary['fatality_rate'] = float(round((summary['deaths']/summary['recovered'])*100, 2))
 summary['recovery_rate'] = float(round((summary['recovered']/summary['cases'])*100, 2))
 
-result['DateRepConf'] = pd.to_datetime(result['DateRepConf']).dt.strftime('%m/%Y')
+result['DateRepConf'] = pd.to_datetime(result['DateRepConf']).dt.strftime('%b. %Y')
 
 # result['DateRepConf'].dt.strftime('%m/%Y')
 # # time_series = result['DateRepConf'].to_json(orient='records')

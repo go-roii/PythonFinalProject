@@ -1,8 +1,8 @@
 {
-    "cases": 3686868,
-    "active": 4305,
-    "recovered": 3622124,
-    "deaths": 60439,
+    "cases": 3688751,
+    "active": 2258,
+    "recovered": 3626038,
+    "deaths": 60455,
     "fatality_rate": 1.67,
-    "recovery_rate": 98.24
+    "recovery_rate": 98.3
 }
