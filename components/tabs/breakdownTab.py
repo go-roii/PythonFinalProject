@@ -49,14 +49,24 @@ class BreakdownTab(ttk.Frame):
         data = json.load(file)
 
         # create the barchart
-        self.axes.bar(data.keys(), data.values())
-        self.axes.set_title(title)
-        self.axes.set_ylabel(yAxisLabel)
+        self.axes.bar(data.keys(), data.values(), color='#94e2d5')
+        self.axes.set_title(title, color='#94e2d5')
+        self.axes.set_ylabel(yAxisLabel, color='#cdd6f4')
+
+        # graph bg
+        self.figure.set_facecolor('#1e1e2e')
+        self.axes.set_facecolor('#1e1e2e')
+
+        self.axes.tick_params(colors='#94e2d5', labelcolor='#cdd6f4', which='both')
+        
+        # frame bg
+        for spine in self.axes.spines.values():
+            spine.set_edgecolor('#94e2d5')
 
         if rotate:
             self.axes.set_xticklabels(data.keys(), rotation=rotation, ha=alignment)
 
-        self.axes.grid(True)
+        self.axes.grid(True, color='#313244')
 
         self.figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 

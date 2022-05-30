@@ -53,7 +53,7 @@ class SummaryTab(ttk.Frame):
         for y in range(row):
             for x in range(column):
                 dashboardCard = DashboardCard(self, dashboardCards[i]['title'], dashboardCards[i]['data'], dashboardCards[i]['accentColor'])
-                dashboardCard.grid(column=x, row=y, padx=spacing, pady=spacing, sticky='news')
+                dashboardCard.grid(column=x, row=y, padx=spacing, pady=spacing, sticky='nsew')
                 i += 1
 
         self.columnconfigure(tuple(range(column)), weight=1)
