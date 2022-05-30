@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 class DashboardCard(tk.Frame):
-    def __init__(self, container, title, data, accentColor='#94e2d5'):
+    def __init__(self, container, title, data, accentColor):
         bgColor='#1e1e2e'
 
         super().__init__(
