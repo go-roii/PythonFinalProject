@@ -32,12 +32,12 @@ class SummaryTab(ttk.Frame):
             },
             {
                 'title': 'Recovery Rate',
-                'data': self.addCommas(summaryData['recovered']), 
+                'data': f"{summaryData['recovery_rate']}%", 
                 'accentColor': '#f9e2af'
             },
             {
                 'title': 'Death Cases', 
-                'data': f"{summaryData['deaths']}%",
+                'data': self.addCommas(summaryData['deaths']),
                 'accentColor': '#cba6f7'
             },
             {
@@ -55,6 +55,8 @@ class SummaryTab(ttk.Frame):
                 dashboardCard = DashboardCard(self, dashboardCards[i]['title'], dashboardCards[i]['data'], dashboardCards[i]['accentColor'])
                 dashboardCard.grid(column=x, row=y, padx=spacing, pady=spacing, sticky='nsew')
                 i += 1
+            if i == len(dashboardCards):
+                break
 
         self.columnconfigure(tuple(range(column)), weight=1)
         self.rowconfigure(tuple(range(row)), weight=1)
