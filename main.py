@@ -37,22 +37,25 @@ class SummaryTab(ttk.Frame):
         spacing = 12
 
         totalCasesCard = DashboardCard(self, title='Total Cases', data=self.addCommas(summaryData['cases']))
-        totalCasesCard.grid(padx=spacing, pady=spacing)
+        totalCasesCard.grid(padx=spacing, pady=spacing, sticky="news")
 
         activeCasesCard = DashboardCard(self, title='Active Cases', data=self.addCommas(summaryData['active']))
-        activeCasesCard.grid(row=0, column=1, padx=spacing, pady=spacing)
+        activeCasesCard.grid(row=0, column=1, padx=spacing, pady=spacing, sticky="news")
 
         recoveredCasesCard = DashboardCard(self, title='Recovered Cases', data=self.addCommas(summaryData['recovered']), accentColor='#f9e2af')
-        recoveredCasesCard.grid(row=1, padx=spacing, pady=spacing)
+        recoveredCasesCard.grid(row=1, padx=spacing, pady=spacing, sticky="news")
 
         recoveryRateCard = DashboardCard(self, title='Recovery Rate', data=f"{summaryData['recovery_rate']}%", accentColor='#f9e2af')
-        recoveryRateCard.grid(row=1, column=1, padx=spacing, pady=spacing)
+        recoveryRateCard.grid(row=1, column=1, padx=spacing, pady=spacing, sticky="news")
 
         deathCasesCard = DashboardCard(self, title='Death Cases', data=self.addCommas(summaryData['deaths']), accentColor='#cba6f7')
-        deathCasesCard.grid(row=2, padx=spacing, pady=spacing)
+        deathCasesCard.grid(row=2, padx=spacing, pady=spacing, sticky="news")
 
         fatalityRateCard = DashboardCard(self, title='Fatality Rate', data=f"{summaryData['fatality_rate']}%", accentColor='#cba6f7')
-        fatalityRateCard.grid(row=2, column=1, padx=spacing, pady=spacing)
+        fatalityRateCard.grid(row=2, column=1, padx=spacing, pady=spacing, sticky="news")
+
+        self.columnconfigure(tuple(range(2)), weight=1)
+        self.rowconfigure(tuple(range(3)), weight=1)
 
     def addCommas(self, number):
         return '{:,}'.format(number)
