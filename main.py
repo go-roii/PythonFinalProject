@@ -62,11 +62,11 @@ class BreakdownTab(ttk.Frame):
     def __init__(self, container):
         super().__init__(container, padding=24)
 
-        # filterComboList = ['Filter by', 'Age Group', 'Sex', 'Region', 'Province']
-        # filterCombobox = ttk.Combobox(self, state="readonly", values=filterComboList)
-        # filterCombobox.current(0)
-        # filterCombobox.bind("<<ComboboxSelected>>", lambda e: filterCombobox.select_clear())
-        # filterCombobox.pack(side=TOP, anchor='ne')
+        filterComboList = ['Region', 'Province', 'Age Group', 'Sex']
+        filterCombobox = ttk.Combobox(self, state="readonly", values=filterComboList)
+        filterCombobox.current(0)
+        filterCombobox.bind("<<ComboboxSelected>>", self.filterCases)
+        filterCombobox.pack(side=TOP, anchor='ne', pady=(0, 24))
         #
         # frameContainer = ttk.Frame(self, padding=8)
         # frameContainer.pack(expand=1, fill=BOTH)
@@ -90,11 +90,6 @@ class BreakdownTab(ttk.Frame):
         self.axes = self.figure.add_subplot()
 
         self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15)
-        # self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
-        # self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases')
-        # self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
-
-        # call this method to create a graph
 
     def createBarGraph(self, fileName, title, yAxisLabel, rotate=False, rotation=45, alignment='right'):
         file = open(f'./JSONData/{fileName}.json')
@@ -111,6 +106,23 @@ class BreakdownTab(ttk.Frame):
         self.axes.grid(True)
 
         self.figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+
+    def filterCases(self, event):
+        self.axes.clear()
+
+        match event.widget.get():
+            case 'Region':
+                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15)
+            case 'Province':
+                self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
+            case 'Age Group':
+                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases')
+            case 'Sex':
+                self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
+
+        self.figure_canvas.draw() 
+
+        event.widget.select_clear()
 
 
 class TimelineTab(ttk.Frame, tk.Tk):
