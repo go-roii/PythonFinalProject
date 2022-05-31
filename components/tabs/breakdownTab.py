@@ -45,16 +45,37 @@ class BreakdownTab(ttk.Frame):
 
         self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15)
 
-    def createBarGraph(self, fileName, title, yAxisLabel, rotate=False, rotation=45, alignment='right', sort=False):
+    def createBarGraph(self, fileName, title, yAxisLabel, rotate=False, rotation=45,
+                       alignment='right', sort=False, trimLabels=False):
         file = open(f'./JSONData/{fileName}.json')
         data = json.load(file)
+
+
+
+        trimmed = {}
+        if trimLabels:
+
+            # sort data by date
+            sort_data = sorted(data.items(), key=lambda x: int(x[1]), reverse=True)
+
+            for x in sort_data:
+                newLabel = x[0].split(':')
+
+                if len(newLabel) > 1:
+                    trimmed[newLabel[1]] = x[1]
+                else:
+                    trimmed[newLabel[0]] = x[1]
 
         if sort:
             # sort data by date
             data = OrderedDict(sorted(data.items(), key=lambda t: int(t[0][0:2])))
 
         # create the barchart
-        self.axes.bar(data.keys(), data.values(), color='#94e2d5')
+        if trimLabels:
+            self.axes.bar(trimmed.keys(), trimmed.values(), color='#94e2d5')
+        else:
+            self.axes.bar(data.keys(), data.values(), color='#94e2d5')
+
         self.axes.set_title(title, color='#94e2d5')
         self.axes.set_ylabel(yAxisLabel, color='#cdd6f4')
 
@@ -69,7 +90,10 @@ class BreakdownTab(ttk.Frame):
             spine.set_edgecolor('#94e2d5')
 
         if rotate:
-            self.axes.set_xticklabels(data.keys(), rotation=rotation, ha=alignment)
+            if trimLabels:
+                self.axes.set_xticklabels(trimmed.keys(), rotation=rotation, ha=alignment)
+            else:
+                self.axes.set_xticklabels(data.keys(), rotation=rotation, ha=alignment)
 
         self.axes.grid(True, color='#313244')
 
@@ -81,7 +105,7 @@ class BreakdownTab(ttk.Frame):
 
         match event.widget.get():
             case 'Region':
-                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15)
+                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15, trimLabels=True)
             case 'Province':
                 self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
             case 'Age Group':
