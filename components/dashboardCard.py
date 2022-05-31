@@ -25,6 +25,3 @@ class DashboardCard(tk.Frame):
 
         dataLabel = tk.Label(graph, text=data, font='arial 26 bold', bg=bgColor, fg=accentColor)
         dataLabel.pack(anchor='w')
-
-        comparePreviousDataLabel = tk.Label(graph, text='10.7% VS PREV. 28 DAYS', bg=bgColor, fg='#7b819d')
-        comparePreviousDataLabel.pack(anchor='w')
