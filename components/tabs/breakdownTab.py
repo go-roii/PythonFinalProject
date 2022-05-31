@@ -1,4 +1,5 @@
 import tkinter as tk
+from collections import OrderedDict
 from tkinter import ttk
 import json
 import matplotlib
@@ -9,6 +10,7 @@ from matplotlib.backends.backend_tkagg import (
 )
 
 matplotlib.use('TkAgg')
+
 
 class BreakdownTab(ttk.Frame):
     def __init__(self, container):
@@ -43,10 +45,13 @@ class BreakdownTab(ttk.Frame):
 
         self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15)
 
-
-    def createBarGraph(self, fileName, title, yAxisLabel, rotate=False, rotation=45, alignment='right'):
+    def createBarGraph(self, fileName, title, yAxisLabel, rotate=False, rotation=45, alignment='right', sort=False):
         file = open(f'./JSONData/{fileName}.json')
         data = json.load(file)
+
+        if sort:
+            # sort data by date
+            data = OrderedDict(sorted(data.items(), key=lambda t: int(t[0][0:2])))
 
         # create the barchart
         self.axes.bar(data.keys(), data.values(), color='#94e2d5')
@@ -80,7 +85,7 @@ class BreakdownTab(ttk.Frame):
             case 'Province':
                 self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
             case 'Age Group':
-                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases')
+                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sort=True)
             case 'Sex':
                 self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
 

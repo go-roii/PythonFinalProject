@@ -57,7 +57,7 @@ class TimelineTab(ttk.Frame, tk.Tk):
             spine.set_edgecolor('#94e2d5')
 
         if rotate:
-            self.axes.set_xticklabels(data.keys(), rotation=rotation, ha=alignment)
+            self.axes.set_xticklabels(sortedData.keys(), rotation=rotation, ha=alignment)
 
         self.axes.grid(True, color='#313244')
 
