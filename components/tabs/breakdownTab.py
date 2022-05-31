@@ -18,7 +18,7 @@ class BreakdownTab(ttk.Frame):
 
         comboboxesFrame = tk.Frame(self, bg='#181825')
 
-        sortComboTuple = ('Sort alphabetically', 'Sort by data')
+        sortComboTuple = ('Sort by letter/number', 'Sort by data')
         sortCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=sortComboTuple)
         sortCombobox.current(0)
         sortCombobox.bind("<<ComboboxSelected>>", self.sortCases)
@@ -128,9 +128,9 @@ class BreakdownTab(ttk.Frame):
                 self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15,
                                     trimLabels=True)
             case 'Province':
-                self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True, sortByName=True)
+                self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
             case 'Age Group':
-                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True, sortByValue=True)
+                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases')
             case 'Sex':
                 self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
 
@@ -138,19 +138,34 @@ class BreakdownTab(ttk.Frame):
 
         event.widget.select_clear()
 
+
     def sortCases(self, event):
         self.axes.clear()
-        self.filterCombobox.get()
-        match event.widget.get():
-            case 'Region':
-                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15,
-                                    trimLabels=True)
-            case 'Province':
-                self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
-            case 'Age Group':
-                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sort=True)
-            case 'Sex':
-                self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
+
+        sortValue = event.widget.get()
+        
+        if sortValue == 'Sort by letter/number':
+            match self.filterCombobox.get():
+                case 'Region':
+                    self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15, sortByName=True,
+                                        trimLabels=True)
+                case 'Province':
+                    self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True, sortByName=True,)
+                case 'Age Group':
+                    self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True,)
+                case 'Sex':
+                    self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex', sortByName=True)
+        elif sortValue == 'Sort by data':
+            match self.filterCombobox.get():
+                case 'Region':
+                    self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15, sortByValue=True,
+                                        trimLabels=True)
+                case 'Province':
+                    self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True, sortByValue=True,)
+                case 'Age Group':
+                    self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True,)
+                case 'Sex':
+                    self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex', sortByValue=True,)
 
         self.figure_canvas.draw()
 
