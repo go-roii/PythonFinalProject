@@ -3,6 +3,7 @@ from tkinter import ttk
 from components.tabs.summaryTab import SummaryTab
 from components.tabs.breakdownTab import BreakdownTab
 from components.tabs.timelineTab import TimelineTab
+from components.tabs.configurationTab import ConfigurationTab
 
 
 class Tabs(ttk.Notebook):
@@ -12,9 +13,11 @@ class Tabs(ttk.Notebook):
         summaryTab = SummaryTab(self)
         newCasesTab = BreakdownTab(self)
         timelineTab = TimelineTab(self)
+        configurationTab = ConfigurationTab(self)
         self.add(summaryTab, text='Summary')
         self.add(newCasesTab, text='Breakdown')
         self.add(timelineTab, text='Timeline')
+        self.add(configurationTab, text='Configuration')
 
 
 # root
@@ -38,6 +41,9 @@ class App(tk.Tk):
         # style.configure('TNotebook.Tab', width=15)
         style.configure('dashboardCard.TFrame', background='#1e1e2e')
         style.configure('tabFrame.TFrame', background='#181825')
+
+        asOfDateLabel = ttk.Label(self, text='COVID Data updated as of *date*', font='arial 10 italic')
+        asOfDateLabel.pack(anchor='e')
 
         tabs = Tabs(self)
         tabs.pack(expand=1, fill="both")

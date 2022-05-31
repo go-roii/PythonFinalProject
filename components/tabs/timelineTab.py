@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import json
+from turtle import bgcolor
 import matplotlib
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (
@@ -13,7 +14,7 @@ matplotlib.use('TkAgg')
 
 class TimelineTab(ttk.Frame, tk.Tk):
     def __init__(self, container):
-        super().__init__(container, padding=24)
+        super().__init__(container, padding=24, style='tabFrame.TFrame')
 
         # create a figure
         self.figure = Figure(figsize=(6, 4), dpi=100)
@@ -23,6 +24,8 @@ class TimelineTab(ttk.Frame, tk.Tk):
 
         # create the toolbar
         NavigationToolbar2Tk(self.figure_canvas, self)
+        for button in NavigationToolbar2Tk.winfo_children(self):
+            button.config(background='red')
 
         # create axes
         self.axes = self.figure.add_subplot()
