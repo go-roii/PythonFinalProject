@@ -43,7 +43,7 @@ class App(tk.Tk):
         style.configure('tabFrame.TFrame', background='#181825')
 
         asOfDateLabel = ttk.Label(self, text='COVID Data updated as of *date*', font='arial 10 italic')
-        asOfDateLabel.pack(anchor='e')
+        asOfDateLabel.pack(anchor='e', padx=(0, 6))
 
         tabs = Tabs(self)
         tabs.pack(expand=1, fill="both")

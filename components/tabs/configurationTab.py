@@ -30,28 +30,26 @@ class ConfigurationTab(ttk.Frame):
     files = []
 
     def __init__(self, container):
-        super().__init__(container, padding=12, style='tabFrame.TFrame')
+        super().__init__(container, padding=12)
         self.selected_folder = ''
 
-        labelFrame = ttk.LabelFrame(self, text='Select data directory', padding=20)
+        labelFrame = ttk.LabelFrame(self, text='Configure Data Directory', padding=20)
 
-        selectDataDirectoryButton = ttk.Button(labelFrame, text='Select', command=self.getDirectory)
+        selectDataDirectoryButton = ttk.Button(labelFrame, text='Select Data Directory', command=self.getDirectory)
         selectDataDirectoryButton.pack(pady=(0, 12))
 
-        labelFrame.pack(expand=1, anchor='s', pady=(0, 24))
-
-        labelFrame2 = ttk.LabelFrame(self, text='Process Data', padding=20)
-
-        self.directoryLabel = ttk.Label(labelFrame2, text='no folder selected yet...', font=('arial 10 italic'), padding=(0, 0, 0, 12))
+        self.directoryLabel = ttk.Label(labelFrame, text='No folder selected yet...', font=('arial 10 italic'), padding=(0, 0, 0, 12))
         self.directoryLabel.pack()
 
-        processData = ttk.Button(labelFrame2, text='Process', command=self.processData)
-        processData.pack(pady=(0, 12))
+        self.processDataButton = ttk.Button(labelFrame, text='Process Data', command=self.processData)
+        self.processDataButton['state'] = tk.DISABLED
+        self.processDataButton.pack(pady=(0, 12))
 
-        labelFrame2.pack(expand=1, anchor='n')
+        labelFrame.pack(expand=1)
 
     def getDirectory(self):
         self.selected_folder = filedialog.askdirectory()
+        self.processDataButton['state'] = tk.ACTIVE
         self.directoryLabel.config(text=self.selected_folder)
         self.directory = self.selected_folder
 
