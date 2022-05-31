@@ -25,10 +25,10 @@ class BreakdownTab(ttk.Frame):
         sortCombobox.pack(side=tk.LEFT, anchor='nw')
 
         filterComboTuple = ('Region', 'Province', 'Age Group', 'Sex')
-        filterCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=filterComboTuple)
-        filterCombobox.current(0)
-        filterCombobox.bind("<<ComboboxSelected>>", self.filterCases)
-        filterCombobox.pack(side=tk.RIGHT, anchor='ne', expand=1, pady=(0, 24))
+        self.filterCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=filterComboTuple)
+        self.filterCombobox.current(0)
+        self.filterCombobox.bind("<<ComboboxSelected>>", self.filterCases)
+        self.filterCombobox.pack(side=tk.RIGHT, anchor='ne', expand=1, pady=(0, 24))
 
         comboboxesFrame.pack(side=tk.TOP, fill=tk.X)
         #
@@ -36,13 +36,14 @@ class BreakdownTab(ttk.Frame):
         # frameContainer.pack(expand=1, fill=BOTH)
 
         font = {
-            'size': 8
+            'size': 6
         }
 
         matplotlib.rc('font', **font)
 
         # create a figure
         self.figure = Figure(figsize=(10, 5), dpi=120)
+        self.figure.subplots_adjust(bottom=0.2, left=.04, right=.98)
 
         # create FigureCanvasTkAgg object
         self.figure_canvas = FigureCanvasTkAgg(self.figure, self)
@@ -57,7 +58,9 @@ class BreakdownTab(ttk.Frame):
 
 
     def createBarGraph(self, fileName, title, yAxisLabel, rotate=False, rotation=45,
-                       alignment='right', sort=False, trimLabels=False):
+                       alignment='right', sortNumKey=False, trimLabels=False, sortByName=False,
+                       sortByValue=False):
+
         file = open(f'./JSONData/{fileName}.json')
         data = json.load(file)
 
@@ -75,9 +78,17 @@ class BreakdownTab(ttk.Frame):
                 else:
                     trimmed[newLabel[0]] = x[1]
 
-        if sort:
+        if sortNumKey:
             # sort data by date
             data = OrderedDict(sorted(data.items(), key=lambda t: int(t[0][0:2])))
+
+        if sortByName:
+            # sort data by name
+            data = OrderedDict(sorted(data.items(), key=lambda t: str(t[0])))
+
+        if sortByValue:
+            # sort data by name
+            data = OrderedDict(sorted(data.items(), key=lambda t: int(t[1]), reverse=True))
 
         # create the barchart
         if trimLabels:
@@ -114,11 +125,12 @@ class BreakdownTab(ttk.Frame):
 
         match event.widget.get():
             case 'Region':
-                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15, trimLabels=True)
+                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15,
+                                    trimLabels=True)
             case 'Province':
-                self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
+                self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True, sortByName=True)
             case 'Age Group':
-                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sort=True)
+                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True, sortByValue=True)
             case 'Sex':
                 self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
 
@@ -127,14 +139,19 @@ class BreakdownTab(ttk.Frame):
         event.widget.select_clear()
 
     def sortCases(self, event):
-        # self.axes.clear()
-
+        self.axes.clear()
+        self.filterCombobox.get()
         match event.widget.get():
             case 'Region':
-                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15)
+                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15,
+                                    trimLabels=True)
             case 'Province':
                 self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
+            case 'Age Group':
+                self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sort=True)
+            case 'Sex':
+                self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
 
-        # self.figure_canvas.draw() 
+        self.figure_canvas.draw()
 
         event.widget.select_clear()
