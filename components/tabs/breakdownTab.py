@@ -16,11 +16,21 @@ class BreakdownTab(ttk.Frame):
     def __init__(self, container):
         super().__init__(container, padding=24)
 
-        filterComboList = ['Region', 'Province', 'Age Group', 'Sex']
-        filterCombobox = ttk.Combobox(self, state="readonly", values=filterComboList)
+        comboboxesFrame = tk.Frame(self)
+
+        sortComboTuple = ('Sort alphabetically', 'Sort by data')
+        sortCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=sortComboTuple)
+        sortCombobox.current(0)
+        sortCombobox.bind("<<ComboboxSelected>>", self.sortCases)
+        sortCombobox.pack(side=tk.LEFT, anchor='nw', expand=1)
+
+        filterComboTuple = ('Region', 'Province', 'Age Group', 'Sex')
+        filterCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=filterComboTuple)
         filterCombobox.current(0)
         filterCombobox.bind("<<ComboboxSelected>>", self.filterCases)
-        filterCombobox.pack(side=tk.TOP, anchor='ne', pady=(0, 24))
+        filterCombobox.pack(side=tk.RIGHT, anchor='ne', expand=1, pady=(0, 24))
+
+        comboboxesFrame.pack(side=tk.TOP, expand=1, fill=tk.X)
         #
         # frameContainer = ttk.Frame(self, padding=8)
         # frameContainer.pack(expand=1, fill=BOTH)
@@ -97,7 +107,7 @@ class BreakdownTab(ttk.Frame):
 
         self.axes.grid(True, color='#313244')
 
-        self.figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+        self.figure_canvas.get_tk_widget().pack(fill=tk.BOTH, expand=1)
 
 
     def filterCases(self, event):
@@ -114,5 +124,18 @@ class BreakdownTab(ttk.Frame):
                 self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex')
 
         self.figure_canvas.draw() 
+
+        event.widget.select_clear()
+
+    def sortCases(self, event):
+        # self.axes.clear()
+
+        match event.widget.get():
+            case 'Region':
+                self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15)
+            case 'Province':
+                self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True)
+
+        # self.figure_canvas.draw() 
 
         event.widget.select_clear()
