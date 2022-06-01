@@ -24,11 +24,11 @@ class BreakdownTab(ttk.Frame):
         sortCombobox.bind("<<ComboboxSelected>>", self.sortCases)
         sortCombobox.pack(side=tk.LEFT, anchor='nw')
 
-        filterComboTuple = ('Region', 'Province', 'Age Group', 'Sex')
-        self.filterCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=filterComboTuple)
-        self.filterCombobox.current(0)
-        self.filterCombobox.bind("<<ComboboxSelected>>", self.filterCases)
-        self.filterCombobox.pack(side=tk.RIGHT, anchor='ne', expand=1, pady=(0, 24))
+        categoryComboTuple = ('Region', 'Province', 'Age Group', 'Sex')
+        self.categoryCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=categoryComboTuple)
+        self.categoryCombobox.current(0)
+        self.categoryCombobox.bind("<<ComboboxSelected>>", self.filterCases)
+        self.categoryCombobox.pack(side=tk.RIGHT, anchor='ne', expand=1, pady=(0, 24))
 
         comboboxesFrame.pack(side=tk.TOP, fill=tk.X)
         #
@@ -148,7 +148,7 @@ class BreakdownTab(ttk.Frame):
         sortValue = event.widget.get()
         
         if sortValue == 'Sort by letter/number':
-            match self.filterCombobox.get():
+            match self.categoryCombobox.get():
                 case 'Region':
                     self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15, sortByName=True,
                                         trimLabels=True)
@@ -159,7 +159,7 @@ class BreakdownTab(ttk.Frame):
                 case 'Sex':
                     self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex', sortByName=True)
         elif sortValue == 'Sort by data':
-            match self.filterCombobox.get():
+            match self.categoryCombobox.get():
                 case 'Region':
                     self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15, sortByValue=True,
                                         trimLabels=True)
