@@ -40,7 +40,7 @@ class BreakdownTab(ttk.Frame):
 
         # create a figure
         self.figure = Figure(figsize=(10, 5), dpi=120)
-        self.figure.subplots_adjust(bottom=0.2, left=.04, right=.98)
+        self.figure.subplots_adjust(bottom=0.2, left=.09, right=0.96)
 
         # create FigureCanvasTkAgg object
         self.figure_canvas = FigureCanvasTkAgg(self.figure, self)
@@ -139,7 +139,7 @@ class BreakdownTab(ttk.Frame):
                 case 'Age Group':
                     self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True,)
                 case 'Sex':
-                    self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex', sortByName=True)
+                    self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Cases', sortByName=True)
         elif sortValue == 'Sort by data':
             match categoryValue:
                 case 'Region':
@@ -150,7 +150,7 @@ class BreakdownTab(ttk.Frame):
                 case 'Age Group':
                     self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True, sortByValue=True)
                 case 'Sex':
-                    self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex', sortByValue=True,)
+                    self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Cases', sortByValue=True,)
 
         if categoryValue == 'Sex':
             self.sortCombobox.pack_forget()
