@@ -40,7 +40,7 @@ class BreakdownTab(ttk.Frame):
 
         # create a figure
         self.figure = Figure(figsize=(10, 5), dpi=120)
-        self.figure.subplots_adjust(bottom=0.2, left=.04, right=.98)
+        self.figure.subplots_adjust(bottom=0.2, left=.09, right=0.96)
 
         # create FigureCanvasTkAgg object
         self.figure_canvas = FigureCanvasTkAgg(self.figure, self)
