@@ -25,7 +25,7 @@ class TimelineTab(ttk.Frame, tk.Tk):
         # create the toolbar
         NavigationToolbar2Tk(self.figure_canvas, self)
         # for button in NavigationToolbar2Tk.winfo_children(self):
-        #     button.config(background='red')
+        #     button.config(bg='blue', foreground='white', bd=0, highlightthickness=0,)
 
         # create axes
         self.axes = self.figure.add_subplot()

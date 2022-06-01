@@ -12,7 +12,7 @@ class DashboardCard(tk.Frame):
             bg=bgColor,
             highlightthickness=2,
             highlightbackground=accentColor,
-            padx=16,
+            padx=24,
             pady=20
         )
         self.pack_propagate(0)
