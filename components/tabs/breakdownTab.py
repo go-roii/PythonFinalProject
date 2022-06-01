@@ -129,7 +129,7 @@ class BreakdownTab(ttk.Frame):
         sortValue = self.sortCombobox.get()
         categoryValue =  self.categoryCombobox.get()
         
-        if sortValue == 'Sort by letter/number':
+        if sortValue == 'Sort by label':
             match categoryValue:
                 case 'Region':
                     self.createBarGraph('cases_by_region', 'Cases by Region', 'Number of Cases', rotate=True, rotation=15, sortByName=True,
