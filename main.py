@@ -17,7 +17,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title('COVID Data')
+        self.title('COVID Data Tracker')
         # self.geometry('1024x720+200+200')
 
         if platform.system() == 'Windows':
