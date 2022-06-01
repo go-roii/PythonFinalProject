@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
 
 class DashboardCard(tk.Frame):
     def __init__(self, container, title, data, accentColor):
