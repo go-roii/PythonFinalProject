@@ -18,7 +18,7 @@ class BreakdownTab(ttk.Frame):
 
         comboboxesFrame = tk.Frame(self, bg='#181825')
 
-        sortComboTuple = ('Sort by data', 'Sort by letter/number')
+        sortComboTuple = ('Sort by data', 'Sort by label')
         self.sortCombobox = ttk.Combobox(comboboxesFrame, state="readonly", values=sortComboTuple)
         self.sortCombobox.current(0)
         self.sortCombobox.bind("<<ComboboxSelected>>", self.sortCategorizeCases)
