@@ -39,8 +39,6 @@ class App(tk.Tk):
         self.tk.call("set_theme", "dark")
 
         style = ttk.Style(self)
-        # style.configure('lefttab.TNotebook', tabposition='wn')
-        # style.configure('TNotebook.Tab', width=15)
         style.configure('dashboardCard.TFrame', background='#1e1e2e')
         style.configure('tabFrame.TFrame', background='#181825')
 

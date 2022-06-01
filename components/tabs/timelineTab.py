@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 import json
-from turtle import bgcolor
 import matplotlib
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (
