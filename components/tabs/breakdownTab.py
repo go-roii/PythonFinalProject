@@ -78,12 +78,15 @@ class BreakdownTab(ttk.Frame):
                 else:
                     trimmed[newLabel[0]] = x[1]
 
+        print(trimmed)
+
         if sortNumKey:
             # sort data by date
             data = OrderedDict(sorted(data.items(), key=lambda t: int(t[0][0:2])))
 
         if sortByName:
             # sort data by name
+            trimmed = OrderedDict(sorted(trimmed.items(), key=lambda t: str(t[0][0:2])))
             data = OrderedDict(sorted(data.items(), key=lambda t: str(t[0])))
 
         if sortByValue:
@@ -163,7 +166,7 @@ class BreakdownTab(ttk.Frame):
                 case 'Province':
                     self.createBarGraph('cases_by_province', 'Cases by Province', 'Number of Cases', rotate=True, sortByValue=True,)
                 case 'Age Group':
-                    self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True,)
+                    self.createBarGraph('cases_by_age_group', 'Cases by age group', 'Number of Cases', sortNumKey=True, sortByValue=True)
                 case 'Sex':
                     self.createBarGraph('cases_by_sex', 'Cases by Sex', 'Number of Sex', sortByValue=True,)
 
