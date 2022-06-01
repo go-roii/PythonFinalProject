@@ -1,10 +1,7 @@
 import pandas as pd
 import os
-import numpy as np
-from matplotlib import pyplot as plt
 import json
 from datetime import datetime
-from cProfile import label
 import tkinter as tk
 from tkinter import ttk, filedialog
 
@@ -76,7 +73,6 @@ class ConfigurationTab(ttk.Frame):
                 # add the files reference to files list
                 self.files.append(f'{path}')
 
-        # print(files)
         result = pd.concat([pd.read_csv(f, low_memory=False, skip_blank_lines=True, parse_dates=True,
                                         infer_datetime_format=True, na_values=[], na_filter=True) for f in self.files],
                            ignore_index=True)
@@ -89,9 +85,6 @@ class ConfigurationTab(ttk.Frame):
         self.summary['recovery_rate'] = float(round((self.summary['recovered'] / self.summary['cases']) * 100, 2))
 
         result['DateRepConf'] = pd.to_datetime(result['DateRepConf']).dt.strftime('%b. %Y')
-
-        # result['DateRepConf'].dt.strftime('%m/%Y')
-        # # time_series = result['DateRepConf'].to_json(orient='records')
 
         # sample dataframe
         df = pd.DataFrame(result)
@@ -108,4 +101,12 @@ class ConfigurationTab(ttk.Frame):
         self.writeJSON(cases_by_age_group, 'cases_by_age_group')
         self.writeJSON(cases_by_sex, 'cases_by_sex')
 
+        last_update = {
+            'last_update': str(datetime.now().strftime('%B %d, %Y'))
+        }
 
+        jString = json.dumps(last_update)
+        jsonfile = open(f'./JSONData/last_update.json', 'w')
+
+        jsonfile.write(jString)
+        jsonfile.close()

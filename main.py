@@ -1,4 +1,6 @@
+import json
 import tkinter as tk
+from datetime import datetime
 from tkinter import ttk
 from components.tabs.summaryTab import SummaryTab
 from components.tabs.breakdownTab import BreakdownTab
@@ -42,7 +44,13 @@ class App(tk.Tk):
         style.configure('dashboardCard.TFrame', background='#1e1e2e')
         style.configure('tabFrame.TFrame', background='#181825')
 
-        asOfDateLabel = ttk.Label(self, text='COVID Data updated as of *date*', font='arial 10 italic')
+        f = open('./JSONData/last_update.json')
+        lastUpdateData = json.load(f)
+
+        date = datetime.strptime(lastUpdateData['last_update'], '%B %d, %Y').strftime('%B %d, %Y')
+        print(lastUpdateData)
+
+        asOfDateLabel = ttk.Label(self, text=f'COVID Data updated as of {date}', font='arial 10 italic')
         asOfDateLabel.pack(anchor='e', padx=(0, 6))
 
         tabs = Tabs(self)
