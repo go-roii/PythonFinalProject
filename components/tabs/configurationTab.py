@@ -64,6 +64,9 @@ class ConfigurationTab(ttk.Frame):
         jsonfile.close()
 
     def processData(self):
+
+        self.config(cursor='clock')
+
         for filename in os.listdir(self.selected_folder):
             f = os.path.join(self.selected_folder, filename)
             # checking if it is a file
@@ -110,3 +113,6 @@ class ConfigurationTab(ttk.Frame):
 
         jsonfile.write(jString)
         jsonfile.close()
+
+        self.config(cursor='')
+        tk.messagebox.showinfo(title='Success', message='The data has been processed successfully!\n Please restart the application')

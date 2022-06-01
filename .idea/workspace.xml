@@ -6,13 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="14061128-966a-4497-b398-1338ee40b2d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_age_group.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_age_group.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_month.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_month.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_province.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_province.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_region.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_region.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_sex.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_by_sex.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JSONData/cases_summary.json" beforeDir="false" afterPath="$PROJECT_DIR$/JSONData/cases_summary.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ProcessData.py" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ProcessData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_age_group.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_month.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_province.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_region.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_by_sex.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/cases_summary.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSONData/last_update.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/tabs/configurationTab.py" beforeDir="false" afterPath="$PROJECT_DIR$/components/tabs/configurationTab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +67,7 @@
       <recent name="D:\PythonFinalProject\files" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\PYTHON\PythonFinalProject" />
       <recent name="D:\PythonFinalProject\JSONData" />
       <recent name="D:\PythonFinalProject\Models" />
       <recent name="D:\PythonFinalProject\files" />
@@ -255,7 +257,7 @@
     <SUITE FILE_PATH="coverage/PythonFinalProject$final_proj.coverage" NAME="final_proj Coverage Results" MODIFIED="1652850911283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$DataSummary__1_.coverage" NAME="DataSummary (1) Coverage Results" MODIFIED="1653048300943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$ProcessData.coverage" NAME="ProcessData Coverage Results" MODIFIED="1652957123773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
-    <SUITE FILE_PATH="coverage/PythonFinalProject$main.coverage" NAME="main Coverage Results" MODIFIED="1653809437936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonFinalProject$main.coverage" NAME="main Coverage Results" MODIFIED="1654088118686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$Requests.coverage" NAME="Requests Coverage Results" MODIFIED="1652950972738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
     <SUITE FILE_PATH="coverage/PythonFinalProject$DataSummary.coverage" NAME="DataSummary Coverage Results" MODIFIED="1653008208836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Models" />
   </component>
