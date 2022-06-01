@@ -115,6 +115,9 @@ class BreakdownTab(ttk.Frame):
             else:
                 self.axes.set_xticklabels(data.keys(), rotation=rotation, ha=alignment)
 
+        self.axes.get_yaxis().set_major_formatter(
+            matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+
         self.axes.yaxis.grid(True, color='#313244')
 
         self.figure_canvas.get_tk_widget().pack(fill=tk.BOTH, expand=1)

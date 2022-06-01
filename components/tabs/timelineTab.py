@@ -62,6 +62,9 @@ class TimelineTab(ttk.Frame, tk.Tk):
         if rotate:
             self.axes.set_xticklabels(sortedData.keys(), rotation=rotation, ha=alignment)
 
+        self.axes.get_yaxis().set_major_formatter(
+            matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+
         self.axes.grid(True, color='#313244')
 
         self.figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
